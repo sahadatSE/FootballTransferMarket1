@@ -12,7 +12,7 @@ namespace Database.DBTest
 
             var AllUser = db.UserRoleInfo.ToList();
 
-
+            
 
         }
     }
