@@ -20,7 +20,7 @@ namespace Business.Services
             var slot = footballTransferMarket.Player.FirstOrDefault(x => x.PlayerId == slotBook.PlayerId);
             slot.IsBooked = true;
             footballTransferMarket.Slot.Update(slot);
-            return new Result().DBCommit(footballTransferMarket, "Booked Successfully!", null,playerBook);
+            return new Result().DBCommit(footballTransferMarket,"Booked Successfully!", null,playerBook);
         }
     }
 }
