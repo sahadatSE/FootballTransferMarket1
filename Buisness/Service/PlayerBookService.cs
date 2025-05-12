@@ -16,7 +16,7 @@ namespace Business.Services
         public Result Book(PlayerBook playerBook)
         {
             //?? Payment...
-            footballTransferMarket.PlayerBook.Add(playerBook);
+            footballTransferMarket.PlayerBook.Add(playerBook );
             var slot = footballTransferMarket.Player.FirstOrDefault(x => x.PlayerId == slotBook.PlayerId);
             slot.IsBooked = true;
             footballTransferMarket.Slot.Update(slot);
