@@ -12,29 +12,29 @@ namespace Buisness.Service
     internal class UserService
     {
         FootballTransferMarketContext footballTransferMarketContext = new FootballTransferMarketContext();
-        public Result Registration(UserForm user)
+        public Result Registration(UserForm users)
         {
             bool x = footballTransferMarketContext.UserAny(x => x.Email == user.Email);
             if (x) return new Result(false, "Email already registered!");
-            UserInfo userInfo = new UserInfo();
-            userInfo.FullName = user.FullName;
-            userInfo.Email = user.Email;
-            userInfo.PasswordHash = new PasswordHasher<UserInfo>().HashPassword(userInfo, user.Password);
-            userInfo.RoleId = user.RoleId == 0 ? 3 : user.RoleId;
-            userInfo.IsActive = true;
-            userInfo.CreatedBy = user.CreatedBy;
-            userInfo.UpdatedBy = user.UpdatedBy;
-            userInfo.UpdatedDate = user.UpdatedDate;
-            carParkingContext.UserInfo.Add(userInfo);
-            return new Result().DBCommit(footballTransferMarketContext, "Registered Successfully!", null, user);
+            User user = new User();
+            user.FullName = users.FullName;
+            user.Email = users.Email;
+            user.PasswordHash = new PasswordHasher<User>().HashPassword(user, users.Password);
+            user.RoleId = users.RoleId == 0 ? 3 : users.RoleId;
+            user.IsActive = true;
+            user.CreatedBy = users.CreatedBy;
+            user.UpdatedBy = users.UpdatedBy;
+            user.UpdatedDate = users.UpdatedDate;
+            carParkingContext.User.Add(user);
+            return new Result().DBCommit(footballTransferMarketContext, "Registered Successfully!", null, users);
 
         }
-        public Result Login(UserLoginForm user)
+        public Result Login(UserLoginForm users)
         {
-            UserInfo? user = footballTransferMarketContext.User.Where(x => x.Email == user.Email).FirstOrDefault();
+            User? user = footballTransferMarketContext.User.Where(x => x.Email == users.Email).FirstOrDefault();
             if (user == null) return new Result(false, "Register First!");
 
-            PasswordVerificationResult HashResult = new PasswordHasher<UserInfo>().VerifyHashedPassword(userInfo, userInfo.PasswordHash, user.Password);
+            PasswordVerificationResult HashResult = new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash, users.Password);
             if (HashResult != PasswordVerificationResult.Failed)
             {
                 return new Result(true, $"{user.FullName} successfully logged in!", user);
@@ -45,10 +45,10 @@ namespace Buisness.Service
             }
         }
 
-        public Result Update(UserForm user)
+        public Result Update(UserForm users)
         {
             //logics
-            return new Result().DBCommit(footballTransferMarketContext, "Updated Successfully!", null, user);
+            return new Result().DBCommit(footballTransferMarketContext, "Updated Successfully!", null, users);
         }
         public Result List()
         {
@@ -68,8 +68,8 @@ namespace Buisness.Service
             //logics
             try
             {
-                var User = footballTransferMarketContext.User.Where(x => x.UserId == Id).FirstOrDefault();
-                return new Result(true, "Success", User);
+                var Users = footballTransferMarketContext.User.Where(x => x.UserId == Id).FirstOrDefault();
+                return new Result(true, "Success", Users);
             }
             catch (Exception ex)
             {
