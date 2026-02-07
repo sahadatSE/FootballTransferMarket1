@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    internal class OfferForSale:Player 
+    internal class OfferForSale: BaseModel
     {
         [Key]
         public string MarketId { get; set; } = Guid.NewGuid().ToString();

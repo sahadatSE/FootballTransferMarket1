@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    public class User:BaseModel
+    public class User: BaseModel
     {
         [Key]
         public string UserId { get; set; } = Guid.NewGuid().ToString();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    internal class Payment:BaseModel
+    internal class Payment: BaseModel
     {
         public string PamentID { get; set} = Guid.NewGuid().ToString();
         public string? TransferId { get; set; }

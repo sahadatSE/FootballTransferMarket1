@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace Database.Model
 {
-    public  class Player
+    public  class Player:BaseModel
     {
         [Key]
         public string PlayerId { get; set; } = Guid.NewGuid().ToString();
