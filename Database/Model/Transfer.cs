@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Database.Model
 {
-    public class Transfer:Player 
+    public class Transfer:BaseModel
     {
         [Key]
         public string TransferId { get; set; } = Guid.NewGuid().ToString();
@@ -15,6 +15,8 @@ namespace Database.Model
         [Required]
         public string? TransferFee { get; set; }
         [Required]
-        public string? TransferDate { get; set; }
+        public DateTime TransferDate { get; set; } = DateTime.UtcNow;
+       
+
     }
 }

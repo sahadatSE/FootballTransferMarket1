@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    public class User: BaseModel
+    public class UserInfo : BaseModel
     {
         [Key]
         public string UserId { get; set; } = Guid.NewGuid().ToString();
+        [Required, MaxLength(40)]
+        public string FullName  { get; set; }=null!;
         [Required]
-        public string? Name { get; set; }
+        public string UserEmail { get; set; }=null!;
         [Required]
-        public string? Email { get; set; }
-        [Required]
-        public string? PasswordHash { get; set; }
+        public string  PasswordHash { get; set; }=null!;    
         public bool IsActive { get; set; }
-        public bool IsAdmin { get; set; }
+        public int RoleId { get; set; }
     }
 }

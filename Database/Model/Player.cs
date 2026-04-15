@@ -1,5 +1,8 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.Design;
+using System.Diagnostics.CodeAnalysis;
 namespace Database.Model
 {
     public  class Player:BaseModel
@@ -7,21 +10,33 @@ namespace Database.Model
         [Key]
         public string PlayerId { get; set; } = Guid.NewGuid().ToString();
         [Required]
-        public string? PlayerName { get; set; }
+        [StringLength(100)]
+        public string PlayerName { get; set; }= null!;      
         [Required]
-        public string? Position { get; set; }
+        [StringLength(50)]
+        public string Position { get; set; } = null!;    
         [Required]
-        public string? PlayerAge { get; set; }
+        [StringLength(3)]
+        public string PlayerAge { get; set; }=  null!;
         [Required]
-        public string? Nationality { get; set; }
+        [StringLength(100)]
+        public string Nationality { get; set; }=null!;  
         [Required]
-        public string? CurrentClub { get; set; }
+        [StringLength(100)] 
+        public string CurrentClub { get; set; }= null!;
         [Required]
-        public string? MarketValue { get; set; }
+        public String PreviousClub { get; set; } = null!;
         [Required]
-        public string? ContractExpiry { get; set; }
+        public decimal MarketValue { get; set; }
         [Required]
-        public int? Rating { get; set; }
+        public DateTime ContractExpiry { get; set; } = DateTime.UtcNow;
+        [Required]
+        public int Rating { get; set; }
+        public bool IsAvailable { get; set; }   
+
+        [ForeignKey("Agent")]
+        public string AgentId { get; set; }=Guid.NewGuid().ToString();
+        public string? AgentName { get; set; }
         public bool IsActive { get; set; }
     }
 }

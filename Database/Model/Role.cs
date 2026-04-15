@@ -11,7 +11,7 @@ namespace Database.Model
     {
         [Key]
         public int RoleID { get; set; }
-        public int Name { get; set; }
-        public int IsActive { get; set; }
+        public string?Name { get; set; }
+        public bool IsActive { get; set; }
     }
 }

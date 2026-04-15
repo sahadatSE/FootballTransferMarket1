@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    internal class BaseModel
+    public class BaseModel
     {
         public DateTime CreatedDate { get; set; }
         public string? CreatedBY {get; set;}

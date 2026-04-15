@@ -19,7 +19,7 @@ namespace Database.ViewModel
         public string? PasswordHash { get; set; }
         public bool IsActive { get; set; }
         public int RoleID { get; set; }
-        public string RoleNmae { get; set; }
+        public string ?RoleName { get; set; }
         public string? UpadatedByName { get; set; }
     }
 }
