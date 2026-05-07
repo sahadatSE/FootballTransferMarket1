@@ -23,9 +23,13 @@ namespace Database.Model
         [Required]
         [StringLength(100)]
         public String LicenseNumber { get; set; }   =null!;
-        [ForeignKey("Player")]
-        public string PlayerId { get; set; } = Guid.NewGuid().ToString();
-        public string PlayerName { get; set; }= null!;  
+
+        public string PlayerId { get; set; } = null!;
+        [ForeignKey("PlayerId")]
+        public string PlayerName { get; set; } = null!;
+    
+        public  Player Player { get; set; } = null!;
+         
 
 
 

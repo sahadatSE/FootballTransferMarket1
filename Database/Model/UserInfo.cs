@@ -10,13 +10,15 @@ namespace Database.Model
     public class UserInfo : BaseModel
     {
         [Key]
-        public string UserId { get; set; } = Guid.NewGuid().ToString();
+        public string UserInfoId { get; set; } = Guid.NewGuid().ToString();
         [Required, MaxLength(40)]
-        public string FullName  { get; set; }=null!;
+        public string UserName  { get; set; }=null!;
         [Required]
         public string UserEmail { get; set; }=null!;
         [Required]
-        public string  PasswordHash { get; set; }=null!;    
+        public string UsreNumber { get; set; }=null!;
+        [Required]
+        public string  UsrePasswordHash { get; set; }=null!;    
         public bool IsActive { get; set; }
         public int RoleId { get; set; }
     }

@@ -7,11 +7,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Database.Model
 {
-    internal class Role:BaseModel
+    public class Role:BaseModel
     {
         [Key]
         public int RoleID { get; set; }
-        public string?Name { get; set; }
+        public string Name { get; set; }= null!;    
         public bool IsActive { get; set; }
     }
 }

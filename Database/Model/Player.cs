@@ -32,10 +32,12 @@ namespace Database.Model
         public DateTime ContractExpiry { get; set; } = DateTime.UtcNow;
         [Required]
         public int Rating { get; set; }
-        public bool IsAvailable { get; set; }   
+        public bool IsAvailable { get; set; }
 
-        [ForeignKey("Agent")]
-        public string AgentId { get; set; }=Guid.NewGuid().ToString();
+
+        public string AgentId { get; set; } = null!;
+        [ForeignKey("AgentId")]
+        public AgentInfo AgentInfo { get; set; } = null!;
         public string? AgentName { get; set; }
         public bool IsActive { get; set; }
     }
