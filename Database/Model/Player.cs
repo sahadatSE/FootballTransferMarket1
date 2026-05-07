@@ -8,6 +8,7 @@ namespace Database.Model
     public  class Player:BaseModel
     {
         [Key]
+        [Required]  
         public string PlayerId { get; set; } = Guid.NewGuid().ToString();
         [Required]
         [StringLength(100)]

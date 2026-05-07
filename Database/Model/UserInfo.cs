@@ -10,6 +10,7 @@ namespace Database.Model
     public class UserInfo : BaseModel
     {
         [Key]
+        [Required]
         public string UserInfoId { get; set; } = Guid.NewGuid().ToString();
         [Required, MaxLength(40)]
         public string UserName  { get; set; }=null!;

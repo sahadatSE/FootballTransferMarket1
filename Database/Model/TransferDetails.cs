@@ -10,7 +10,8 @@ namespace Database.Model
 {
     public class TransferDetails : BaseModel
     {
-        [Key]  
+        [Key]
+        [Required]
         public int TransferDetailsId { get;set;  }
        
         public string TransferID { get;set;  }=null!;

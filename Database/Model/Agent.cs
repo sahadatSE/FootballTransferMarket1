@@ -9,6 +9,7 @@ namespace Database.Model
     public class AgentInfo : BaseModel
     {
         [Key]
+        [Required]  
         public string AgentId { get; set; } = Guid.NewGuid().ToString();
         [Required]
         [StringLength(50)]

@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Database.Model
 {
-    public class PaymentMethod: BaseModel
+    public class PaymentMethod : BaseModel
     {
         [Key]
         public int PaymentMethodID { get; set; }
-        [Key]
+        [Required]
         public string PaymentMethodName { get; set; } = null!;
-        public bool IsActive { get; set; }  
-
+        public bool IsActive { get; set; }
     }
 }

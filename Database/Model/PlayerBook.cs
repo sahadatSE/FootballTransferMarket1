@@ -11,6 +11,7 @@ namespace Database.Model
     public class PlayerBook : BaseModel
     {
         [Key]
+        [Required]
         public string PlayerBookID { get; set; } = Guid.NewGuid().ToString();
         [Required]
         public DateTime BookDate { get; set; } = DateTime.UtcNow;

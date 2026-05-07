@@ -7,6 +7,7 @@ namespace Database.Model
     public class Transfer:BaseModel
     {
         [Key]
+        [Required]
         public string TransferId { get; set; } = Guid.NewGuid().ToString();
         [Required]
         public string? FromClub { get; set; }
